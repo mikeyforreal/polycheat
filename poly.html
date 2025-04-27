@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polytechnic Cheat Sheet</title>
+<style>
+    :root {
+        --primary-color: #7985c9;
+        --secondary-color: #e8eaf7;
+        --accent-color: #5a68a3;
+        --text-color: #333;
+        --light-text: #fff;
+        --border-radius: 12px;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Arial', sans-serif;
+    }
+    body {
+        background-color: #f5f6fa;
+        color: var(--text-color);
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+    }
+    .logo {
+        font-weight: bold;
+        font-size: 1.8rem;
+        color: var(--primary-color);
+    }
+    nav ul {
+        display: flex;
+        list-style: none;
+    }
+    nav ul li {
+        margin-left: 20px;
+    }
+    nav ul li a {
+        text-decoration: none;
+        color: var(--text-color);
+        font-weight: 500;
+    }
+    .auth-buttons {
+        display: flex;
+    }
+    .btn {
+        padding: 8px 20px;
+        border-radius: 20px;
+        border: none;
+        cursor: pointer;
+        font-weight: 500;
+        margin-left: 10px;
+    }
+    .btn-login {
+        background-color: transparent;
+        border: 1px solid var(--primary-color);
+        color: var(--primary-color);
+    }
+    .btn-signup {
+        background-color: var(--primary-color);
+        color: var(--light-text);
+    }
+    .hero {
+        background-color: var(--primary-color);
+        border-radius: var(--border-radius);
+        padding: 40px;
+        color: var(--light-text);
+        margin-bottom: 30px;
+        background-image: linear-gradient(to right, #7985c9, #5a68a3);
+    }
+    .hero-content {
+        max-width: 100%;
+    }
+    .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 15px;
+    }
+    .hero p {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+    .read-more {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        color: var(--light-text);
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .qa-section {
+        margin-top: 30px;
+    }
+    .qa-container {
+        background-color: #fff;
+        border-radius: var(--border-radius);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+    }
+    .qa-header {
+        padding: 20px;
+        background-color: var(--secondary-color);
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--accent-color);
+    }
+    .qa-dropdown {
+        width: 100%;
+    }
+    .qa-item {
+        border-bottom: 1px solid #efefef;
+    }
+    .qa-question {
+        padding: 20px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 500;
+        color: var(--accent-color);
+        transition: background-color 0.3s;
+    }
+    .qa-question:hover {
+        background-color: #f9f9f9;
+    }
+    .qa-question i {
+        transition: transform 0.3s;
+    }
+    .qa-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.5s ease;
+        background-color: #f9f9f9;
+    }
+    .qa-answer-content {
+        padding: 20px;
+        line-height: 1.6;
+        overflow-x: auto;
+    }
+    .qa-answer.active {
+        max-height: 3000px;
+        padding: 20px;
+    }
+    .qa-question.active i {
+        transform: rotate(180deg);
+    }
+    pre {
+        background-color: #f1f1f1;
+        padding: 15px;
+        border-radius: 8px;
+        overflow-x: auto;
+        white-space: pre;
+    }
+    code {
+        font-family: Consolas, monospace;
+        font-size: 0.95rem;
+    }
+    footer {
+        text-align: center;
+        padding: 20px 0;
+        margin-top: 40px;
+        color: #777;
+        font-size: 0.9rem;
+    }
+    .note {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        font-size: 0.9rem;
+        color: #555;
+    }
+</style>
+</head>
+
+<body>
+<div class="container">
+    <header>
+        <div class="logo">Poly Cheat</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Programs</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button class="btn btn-login">Log in</button>
+            <button class="btn btn-signup">Sign up</button>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Polytechnic Programs</h1>
+            <p>Your complete Data Structures Cheat Sheet with codes!</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+    </div>
+
+    <div class="qa-section">
+        <div class="qa-container">
+            <div class="qa-header">Data Structures Programs</div>
+            <div class="note">
+                Note: Click on each question to view the full C code. Ensure you copy the entire code, including the #include directives at the top, to compile and run the programs.
+            </div>
+            <div class="qa-dropdown">
+                <!-- Question 1: Stack using Array -->
+                <div class="qa-item">
+                    <div class="qa-question" onclick="toggleAnswer(this)">Stack using Array<i>▼</i></div>
+                    <div class="qa-answer">
+                        <div class="qa-answer-content">
+                            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+void push();
+void pop();
+void display();
+
+int max;
+int stack[100];
+int top;
+
+int main()
+{
+    int c;
+    top = -1;
+    printf("Enter the maximum size: ");
+    scanf("%d", &max);
+    while (1)
+    {
+        printf("\n1. Push\n2. Pop\n3. Display\n4. Exit\nEnter your choice: ");
+        scanf("%d", &c);
+        switch (c)
+        {
+            case 1: push(); break;
+            case 2: pop(); break;
+            case 3: display(); break;
+            case 4: exit(0);
+            default: printf("Wrong choice\n");
+        }
+    }
+}
+
+void push()
+{
+    int item;
+    printf("Enter the push value: ");
+    scanf("%d", &item);
+    if (top == max - 1)
+        printf("Overflow\n");
+    else
+        stack[++top] = item;
+}
+
+void pop()
+{
+    if (top == -1)
+        printf("Underflow\n");
+    else
+        printf("Popped element: %d\n", stack[top--]);
+}
+
+void display()
+{
+    if (top == -1)
+        printf("Stack is empty\n");
+    else
+    {
+        printf("Stack elements: ");
+        for (int i = 0; i <= top; i++)
+            printf("%d ", stack[i]);
+        printf("\n");
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 2: Decimal to Binary using Stack -->
+                <div class="qa-item">
+                    <div class="qa-question" onclick="toggleAnswer(this)">Decimal to Binary using Stack<i>▼</i></div>
+                    <div class="qa-answer">
+                        <div class="qa-answer-content">
+                            <pre><code>#include &lt;stdio.h&gt;
+
+int stack[100];
+int top;
+int max;
+
+void push(int n);
+int pop();
+
+int main()
+{
+    int num, r, b;
+    top = -1;
+    max = 100;
+    printf("Enter the decimal number: ");
+    scanf("%d", &num);
+    while (num != 0)
+    {
+        r = num % 2;
+        push(r);
+        num /= 2;
+    }
+    printf("Binary: ");
+    while (top != -1)
+    {
+        b = pop();
+        if (b != -1) // Check for underflow
+            printf("%d", b);
+    }
+    printf("\n");
+    return 0;
+}
+
+void push(int n)
+{
+    if (top == max - 1)
+        printf("Overflow\n");
+    else
+        stack[++top] = n;
+}
+
+int pop()
+{
+    if (top == -1)
+    {
+        printf("Underflow\n");
+        return -1; // Return sentinel value
+    }
+    else
+        return stack[top--];
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 3: Reverse a String using Stack -->
+                <div class="qa-item">
+                    <div class="qa-question" onclick="toggleAnswer(this)">Reverse a String using Stack<i>▼</i></div>
+                    <div class="qa-answer">
+                        <div class="qa-answer-content">
+                            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+char stack[100];
+int top;
+int max;
+
+void push(char a);
+char pop();
+
+int main()
+{
+    char str[100];
+    int i, l;
+    top = -1;
+    max = 100;
+    
+    printf("Enter the string: ");
+    scanf("%s", str);
+    
+    l = strlen(str);
+    for (i = 0; i < l; i++)
+        push(str[i]);
+    
+    printf("Reversed string: ");
+    for (i = 0; i < l; i++)
+    {
+        char c = pop();
+        if (c != '\0') // Check for underflow
+            printf("%c", c);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+void push(char a)
+{
+    if (top == max - 1)
+        printf("Overflow\n");
+    else
+        stack[++top] = a;
+}
+
+char pop()
+{
+    if (top == -1)
+    {
+        printf("Underflow\n");
+        return '\0'; // Return sentinel value
+    }
+    else
+        return stack[top--];
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 4: Implementation of Linear Queue -->
+                <div class="qa-item">
+                    <div class="qa-question" onclick="toggleAnswer(this)">Implementation of Linear Queue<i>▼</i></div>
+                    <div class="qa-answer">
+                        <div class="qa-answer-content">
+                            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int queue[100];
+int front = -1, rear = -1, max;
+
+void insert(int num);
+void dequeue();
+void display();
+
+int main()
+{
+    int n, ch;
+    printf("Enter the limit: ");
+    scanf("%d", &max);
+    
+    while (1)
+    {
+        printf("\n1. Insert\n2. Delete\n3. Display\n4. Exit\nEnter your choice: ");
+        scanf("%d", &ch);
+        switch (ch)
+        {
+            case 1:
+                printf("Enter the element: ");
+                scanf("%d", &n);
+                insert(n);
+                break;
+            case 2: dequeue(); break;
+            case 3: display(); break;
+            case 4: exit(0);
+            default: printf("Wrong choice\n");
+        }
+    }
+}
+
+void insert(int num)
+{
+    if (rear == max - 1)
+        printf("Overflow\n");
+    else
+    {
+        if (front == -1) front = 0;
+        queue[++rear] = num;
+    }
+}
+
+void dequeue()
+{
+    if (front == -1 || front > rear)
+        printf("Underflow\n");
+    else
+        printf("Deleted element: %d\n", queue[front++]);
+}
+
+void display()
+{
+    if (front == -1 || front > rear)
+        printf("Queue is empty\n");
+    else
+    {
+        printf("Queue elements: ");
+        for (int i = front; i <= rear; i++)
+            printf("%d ", queue[i]);
+        printf("\n");
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 5: Implementation of Singly Linked List -->
+                <div class="qa-item">
+                    <div class="qa-question" onclick="toggleAnswer(this)">Implementation of Singly Linked List<i>▼</i></div>
+                    <div class="qa-answer">
+                        <div class="qa-answer-content">
+                            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+struct node
+{
+    int data;
+    struct node *link;
+} *start = NULL;
+
+void display();
+void search_node(int n);
+void count();
+void insert_head(int n);
+void insert_tail(int n);
+void insert_after(int p, int n);
+void delete_head();
+void delete_tail();
+void delete_after(int l);
+
+int main()
+{
+    int ch, n, p, l;
+    while (1)
+    {
+        printf("\n1. Insert at head\n2. Insert at tail\n3. Insert after position\n4. Display\n5. Search\n6. Count\n7. Delete head\n8. Delete tail\n9. Delete after\n10. Exit\nEnter choice: ");
+        scanf("%d", &ch);
+        switch (ch)
+        {
+            case 1:
+                printf("Enter element: ");
+                scanf("%d", &n);
+                insert_head(n);
+                break;
+            case 2:
+                printf("Enter element: ");
+                scanf("%d", &n);
+                insert_tail(n);
+                break;
+            case 3:
+                printf("Enter position and element: ");
+                scanf("%d%d", &p, &n);
+                insert_after(p, n);
+                break;
+            case 4: display(); break;
+            case 5:
+                printf("Enter element to search: ");
+                scanf("%d", &n);
+                search_node(n);
+                break;
+            case 6: count(); break;
+            case 7: delete_head(); break;
+            case 8: delete_tail(); break;
+            case 9:
+                printf("Enter position after which to delete: ");
+                scanf("%d", &l);
+                delete_after(l);
+                break;
+            case 10: exit(0);
+            default: printf("Wrong choice\n");
+        }
+    }
+}
+
+void insert_head(int n)
+{
+    struct node *temp = (struct node*)malloc(sizeof(struct node));
+    temp->data = n;
+    temp->link = start;
+    start = temp;
+}
+
+void insert_tail(int n)
+{
+    struct node *temp = (struct node*)malloc(sizeof(struct node));
+    temp->data = n;
+    temp->link = NULL;
+    if (start == NULL)
+        start = temp;
+    else
+    {
+        struct node *ptr = start;
+        while (ptr->link != NULL)
+            ptr = ptr->link;
+        ptr->link = temp;
+    }
+}
+
+void insert_after(int p, int n)
+{
+    struct node *ptr = start;
+    for (int i = 1; i < p && ptr != NULL; i++)
+        ptr = ptr->link;
+    if (ptr == NULL)
+        printf("Position not found\n");
+    else
+    {
+        struct node *temp = (struct node*)malloc(sizeof(struct node));
+        temp->data = n;
+        temp->link = ptr->link;
+        ptr->link = temp;
+    }
+}
+
+void display()
+{
+    struct node *ptr = start;
+    if (ptr == NULL)
+        printf("List is empty\n");
+    else
+    {
+        printf("Linked List: ");
+        while (ptr != NULL)
+        {
+            printf("%d ", ptr->data);
+            ptr = ptr->link;
+        }
+        printf("\n");
+    }
+}
+
+void search_node(int n)
+{
+    struct node *ptr = start;
+    int pos = 1;
+    while (ptr != NULL)
+    {
+        if (ptr->data == n)
+        {
+            printf("Element %d found at position %d\n", n, pos);
+            return;
+        }
+        ptr = ptr->link;
+        pos++;
+    }
+    printf("Element not found\n");
+}
+
+void count()
+{
+    struct node *ptr = start;
+    int cnt = 0;
+    while (ptr != NULL)
+    {
+        cnt++;
+        ptr = ptr->link;
+    }
+    printf("Total nodes: %d\n", cnt);
+}
+
+void delete_head()
+{
+    if (start == NULL)
+        printf("List is empty\n");
+    else
+    {
+        struct node *temp = start;
+        start = start->link;
+        free(temp);
+    }
+}
+
+void delete_tail()
+{
+    if (start == NULL)
+        printf("List is empty\n");
+    else if (start->link == NULL)
+    {
+        free(start);
+        start = NULL;
+    }
+    else
+    {
+        struct node *ptr = start;
+        while (ptr->link->link != NULL)
+            ptr = ptr->link;
+        free(ptr->link);
+        ptr->link = NULL;
+    }
+}
+
+void delete_after(int l)
+{
+    struct node *ptr = start;
+    for (int i = 1; i < l && ptr != NULL; i++)
+        ptr = ptr->link;
+    if (ptr == NULL || ptr->link == NULL)
+        printf("Cannot delete\n");
+    else
+    {
+        struct node *temp = ptr->link;
+        ptr->link = temp->link;
+        free(temp);
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 6: Implementation of Linked Stack -->
+                <div class="qa-item">
+                    <div class="qa-question" onclick="toggleAnswer(this)">Implementation of Linked Stack<i>▼</i></div>
+                    <div class="qa-answer">
+                        <div class="qa-answer-content">
+                            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+struct node
+{
+    int data;
+    struct node *link;
+} *top = NULL;
+
+void push(int n);
+void pop();
+void display();
+
+int main()
+{
+    int ch, n;
+    while (1)
+    {
+        printf("\n1. Push\n2. Pop\n3. Display\n4. Exit\nEnter your choice: ");
+        scanf("%d", &ch);
+        switch (ch)
+        {
+            case 1:
+                printf("Enter the element: ");
+                scanf("%d", &n);
+                push(n);
+                break;
+            case 2: pop(); break;
+            case 3: display(); break;
+            case 4: exit(0);
+            default: printf("Wrong choice\n");
+        }
+    }
+}
+
+void push(int n)
+{
+    struct node *temp = (struct node*)malloc(sizeof(struct node));
+    temp->data = n;
+    temp->link = top;
+    top = temp;
+}
+
+void pop()
+{
+    if (top == NULL)
+        printf("Underflow\n");
+    else
+    {
+        printf("Popped element: %d\n", top->data);
+        struct node *temp = top;
+        top = top->link;
+        free(temp);
+    }
+}
+
+void display()
+{
+    struct node *ptr = top;
+    if (ptr == NULL)
+        printf("Stack is empty\n");
+    else
+    {
+        printf("Stack elements: ");
+        while (ptr != NULL)
+        {
+            printf("%d ", ptr->data);
+            ptr = ptr->link;
+        }
+        printf("\n");
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 7: Implementation of Linked Queue -->
+                <div class="qa-item">
+                    <div class="qa-question" onclick="toggleAnswer(this)">Implementation of Linked Queue<i>▼</i></div>
+                    <div class="qa-answer">
+                        <div class="qa-answer-content">
+                            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+struct node
+{
+    int data;
+    struct node *link;
+} *front = NULL, *rear = NULL;
+
+void insert_queue(int n);
+void delete_queue();
+void display();
+
+int main()
+{
+    int ch, n;
+    while (1)
+    {
+        printf("\n1. Insert\n2. Delete\n3. Display\n4. Exit\nEnter your choice: ");
+        scanf("%d", &ch);
+        switch (ch)
+        {
+            case 1:
+                printf("Enter the element: ");
+                scanf("%d", &n);
+                insert_queue(n);
+                break;
+            case 2: delete_queue(); break;
+            case 3: display(); break;
+            case 4: exit(0);
+            default: printf("Wrong choice\n");
+        }
+    }
+}
+
+void insert_queue(int n)
+{
+    struct node *temp = (struct node*)malloc(sizeof(struct node));
+    temp->data = n;
+    temp->link = NULL;
+    if (rear == NULL)
+        front = rear = temp;
+    else
+    {
+        rear->link = temp;
+        rear = temp;
+    }
+}
+
+void delete_queue()
+{
+    if (front == NULL)
+        printf("Underflow\n");
+    else
+    {
+        printf("Deleted element: %d\n", front->data);
+        struct node *temp = front;
+        front = front->link;
+        if (front == NULL) rear = NULL;
+        free(temp);
+    }
+}
+
+void display()
+{
+    struct node *ptr = front;
+    if (ptr == NULL)
+        printf("Queue is empty\n");
+    else
+    {
+        printf("Queue elements: ");
+        while (ptr != NULL)
+        {
+            printf("%d ", ptr->data);
+            ptr = ptr->link;
+        }
+        printf("\n");
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 8: Implementation of Binary Search Tree -->
+                <div class="qa-item">
+                    <div class="qa-question" onclick="toggleAnswer(this)">Implementation of Binary Search Tree<i>▼</i></div>
+                    <div class="qa-answer">
+                        <div class="qa-answer-content">
+                            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+struct node
+{
+    int data;
+    struct node *lchild, *rchild;
+} *root = NULL;
+
+void insert(int x);
+void find(int x, struct node **par, struct node **loc);
+void preorder(struct node *ptr);
+void inorder(struct node *ptr);
+void postorder(struct node *ptr);
+void delete_node(int x);
+void onechild(struct node *par, struct node *loc);
+void leafnode(struct node *par, struct node *loc);
+
+int main()
+{
+    int x, ch;
+    while (1)
+    {
+        printf("\n1. Insert\n2. Delete\n3. Preorder\n4. Inorder\n5. Postorder\n6. Exit\nEnter your choice: ");
+        scanf("%d", &ch);
+        switch (ch)
+        {
+            case 1:
+                printf("Enter element to insert: ");
+                scanf("%d", &x);
+                insert(x);
+                break;
+            case 2:
+                printf("Enter element to delete: ");
+                scanf("%d", &x);
+                delete_node(x);
+                break;
+            case 3: preorder(root); printf("\n"); break;
+            case 4: inorder(root); printf("\n"); break;
+            case 5: postorder(root); printf("\n"); break;
+            case 6: exit(0);
+            default: printf("Wrong choice\n");
+        }
+    }
+}
+
+void insert(int x)
+{
+    struct node *temp, *parent, *current;
+    temp = (struct node*)malloc(sizeof(struct node));
+    temp->data = x;
+    temp->lchild = temp->rchild = NULL;
+
+    if (root == NULL)
+    {
+        root = temp;
+        return;
+    }
+
+    parent = NULL;
+    current = root;
+    while (current != NULL)
+    {
+        parent = current;
+        if (x < current->data)
+            current = current->lchild;
+        else
+            current = current->rchild;
+    }
+
+    if (x < parent->data)
+        parent->lchild = temp;
+    else
+        parent->rchild = temp;
+}
+
+void preorder(struct node *ptr)
+{
+    if (ptr != NULL)
+    {
+        printf("%d ", ptr->data);
+        preorder(ptr->lchild);
+        preorder(ptr->rchild);
+    }
+}
+
+void inorder(struct node *ptr)
+{
+    if (ptr != NULL)
+    {
+        inorder(ptr->lchild);
+        printf("%d ", ptr->data);
+        inorder(ptr->rchild);
+    }
+}
+
+void postorder(struct node *ptr)
+{
+    if (ptr != NULL)
+    {
+        postorder(ptr->lchild);
+        postorder(ptr->rchild);
+        printf("%d ", ptr->data);
+    }
+}
+
+void find(int x, struct node **par, struct node **loc)
+{
+    struct node *ptr, *ptrsave;
+    if (root == NULL)
+    {
+        *loc = NULL;
+        *par = NULL;
+        return;
+    }
+
+    if (root->data == x)
+    {
+        *loc = root;
+        *par = NULL;
+        return;
+    }
+
+    if (x < root->data)
+        ptr = root->lchild;
+    else
+        ptr = root->rchild;
+
+    ptrsave = root;
+
+    while (ptr != NULL)
+    {
+        if (ptr->data == x)
+        {
+            *loc = ptr;
+            *par = ptrsave;
+            return;
+        }
+
+        ptrsave = ptr;
+
+        if (x < ptr->data)
+            ptr = ptr->lchild;
+        else
+            ptr = ptr->rchild;
+    }
+
+    *loc = NULL;
+    *par = ptrsave;
+}
+
+void delete_node(int x)
+{
+    struct node *par, *loc;
+
+    find(x, &par, &loc);
+
+    if (loc == NULL)
+    {
+        printf("Element not found\n");
+        return;
+    }
+
+    if (loc->lchild != NULL && loc->rchild != NULL)
+        printf("Cannot delete node with two children directly\n");
+    else if (loc->lchild == NULL && loc->rchild == NULL)
+        leafnode(par, loc);
+    else
+        onechild(par, loc);
+}
+
+void onechild(struct node *par, struct node *loc)
+{
+    struct node *child;
+    if (loc->lchild != NULL)
+        child = loc->lchild;
+    else
+        child = loc->rchild;
+
+    if (par == NULL)
+        root = child;
+    else
+    {
+        if (loc == par->lchild)
+            par->lchild = child;
+        else
+            par->rchild = child;
+    }
+    free(loc);
+}
+
+void leafnode(struct node *par, struct node *loc)
+{
+    if (par == NULL)
+        root = NULL;
+    else
+    {
+        if (loc == par->lchild)
+            par->lchild = NULL;
+        else
+            par->rchild = NULL;
+    }
+    free(loc);
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Poly Cheat | All rights reserved</p>
+    </footer>
+</div>
+
+<script>
+    function toggleAnswer(element) {
+        const answer = element.nextElementSibling;
+        const isActive = element.classList.contains('active');
+        
+        // Close all open questions
+        const allQuestions = document.querySelectorAll('.qa-question');
+        const allAnswers = document.querySelectorAll('.qa-answer');
+        
+        allQuestions.forEach(q => q.classList.remove('active'));
+        allAnswers.forEach(a => a.classList.remove('active'));
+        
+        // If the clicked question wasn't active, open it
+        if (!isActive) {
+            element.classList.add('active');
+            answer.classList.add('active');
+        }
+    }
+</script>
+</body>
+</html>
