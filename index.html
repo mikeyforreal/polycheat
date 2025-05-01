@@ -150,7 +150,7 @@
         overflow-x: auto;
     }
     .qa-answer.active {
-        max-height: 3000px;
+        max-height: 5000px; /* Increased to ensure all content is visible */
         padding: 20px;
     }
     .qa-question.active i {
@@ -205,868 +205,756 @@
     <div class="hero">
         <div class="hero-content">
             <h1>Polytechnic Programs</h1>
-            <p>Your complete Data Structures Cheat Sheet with codes!</p>
+            <p>Your complete Android Programming Cheat Sheet with codes!</p>
             <a href="#" class="read-more">Read More</a>
         </div>
     </div>
 
     <div class="qa-section">
         <div class="qa-container">
-            <div class="qa-header">Data Structures Programs</div>
+            <div class="qa-header">Android Programming Experiments</div>
             <div class="note">
-                Note: Click on each question to view the full C code. Ensure you copy the entire code, including the #include directives at the top, to compile and run the programs.
+                Note: Click on each aim to view the full XML and Java code. Ensure you copy the entire code, including all necessary files, to compile and run the programs in Android Studio.
             </div>
             <div class="qa-dropdown">
-                <!-- Question 1: Stack using Array -->
+                <!-- Experiment 3: Android Application for Hello World -->
                 <div class="qa-item">
-                    <div class="qa-question" onclick="toggleAnswer(this)">Stack using Array<i>▼</i></div>
+                    <div class="qa-question" onclick="toggleAnswer(this)">To design a "Hello World" application in Android Studio that displays a message when a button is pressed<i>▼</i></div>
                     <div class="qa-answer">
                         <div class="qa-answer-content">
-                            <pre><code>#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
+                            <h3>activity_main.xml</h3>
+                            <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"&gt;
+    &lt;TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.462" /&gt;
+    &lt;Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.633" /&gt;
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</code></pre>
+                            <h3>MainActivity.java</h3>
+                            <pre><code>package com.example.helloworld;
 
-void push();
-void pop();
-void display();
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
-int max;
-int stack[100];
-int top;
+public class MainActivity extends AppCompatActivity {
+    private TextView textView;
+    private Button button;
 
-int main()
-{
-    int c;
-    top = -1;
-    printf("Enter the maximum size: ");
-    scanf("%d", &max);
-    while (1)
-    {
-        printf("\n1. Push\n2. Pop\n3. Display\n4. Exit\nEnter your choice: ");
-        scanf("%d", &c);
-        switch (c)
-        {
-            case 1: push(); break;
-            case 2: pop(); break;
-            case 3: display(); break;
-            case 4: exit(0);
-            default: printf("Wrong choice\n");
-        }
-    }
-}
-
-void push()
-{
-    int item;
-    printf("Enter the push value: ");
-    scanf("%d", &item);
-    if (top == max - 1)
-        printf("Overflow\n");
-    else
-        stack[++top] = item;
-}
-
-void pop()
-{
-    if (top == -1)
-        printf("Underflow\n");
-    else
-        printf("Popped element: %d\n", stack[top--]);
-}
-
-void display()
-{
-    if (top == -1)
-        printf("Stack is empty\n");
-    else
-    {
-        printf("Stack elements: ");
-        for (int i = 0; i <= top; i++)
-            printf("%d ", stack[i]);
-        printf("\n");
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        textView = findViewById(R.id.textView);
+        button = findViewById(R.id.button);
+        textView.setText("Welcome");
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textView.setText("Hello World!");
+            }
+        });
     }
 }</code></pre>
                         </div>
                     </div>
                 </div>
 
-                <!-- Question 2: Decimal to Binary using Stack -->
+                <!-- Experiment 4: Android Application for Factorial -->
                 <div class="qa-item">
-                    <div class="qa-question" onclick="toggleAnswer(this)">Decimal to Binary using Stack<i>▼</i></div>
+                    <div class="qa-question" onclick="toggleAnswer(this)">To create an Android application for number Factorial<i>▼</i></div>
                     <div class="qa-answer">
                         <div class="qa-answer-content">
-                            <pre><code>#include &lt;stdio.h&gt;
+                            <h3>activity_main.xml</h3>
+                            <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"&gt;
+    &lt;EditText
+        android:id="@+id/input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter number"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2" /&gt;
+    &lt;TextView
+        android:id="@+id/output"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.297" /&gt;
+    &lt;Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.423" /&gt;
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</code></pre>
+                            <h3>MainActivity.java</h3>
+                            <pre><code>package com.example.factorial;
 
-int stack[100];
-int top;
-int max;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
-void push(int n);
-int pop();
+public class MainActivity extends AppCompatActivity {
+    private EditText input;
+    private Button button;
+    private TextView output;
 
-int main()
-{
-    int num, r, b;
-    top = -1;
-    max = 100;
-    printf("Enter the decimal number: ");
-    scanf("%d", &num);
-    while (num != 0)
-    {
-        r = num % 2;
-        push(r);
-        num /= 2;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        input = findViewById(R.id.input);
+        button = findViewById(R.id.button);
+        output = findViewById(R.id.output);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int num = Integer.parseInt(input.getText().toString());
+                int fact = factorial(num);
+                output.setText("Factorial: " + String.valueOf(fact));
+            }
+        });
     }
-    printf("Binary: ");
-    while (top != -1)
-    {
-        b = pop();
-        if (b != -1) // Check for underflow
-            printf("%d", b);
-    }
-    printf("\n");
-    return 0;
-}
 
-void push(int n)
-{
-    if (top == max - 1)
-        printf("Overflow\n");
-    else
-        stack[++top] = n;
-}
-
-int pop()
-{
-    if (top == -1)
-    {
-        printf("Underflow\n");
-        return -1; // Return sentinel value
-    }
-    else
-        return stack[top--];
-}</code></pre>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Question 3: Reverse a String using Stack -->
-                <div class="qa-item">
-                    <div class="qa-question" onclick="toggleAnswer(this)">Reverse a String using Stack<i>▼</i></div>
-                    <div class="qa-answer">
-                        <div class="qa-answer-content">
-                            <pre><code>#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
-
-char stack[100];
-int top;
-int max;
-
-void push(char a);
-char pop();
-
-int main()
-{
-    char str[100];
-    int i, l;
-    top = -1;
-    max = 100;
-    
-    printf("Enter the string: ");
-    scanf("%s", str);
-    
-    l = strlen(str);
-    for (i = 0; i < l; i++)
-        push(str[i]);
-    
-    printf("Reversed string: ");
-    for (i = 0; i < l; i++)
-    {
-        char c = pop();
-        if (c != '\0') // Check for underflow
-            printf("%c", c);
-    }
-    printf("\n");
-
-    return 0;
-}
-
-void push(char a)
-{
-    if (top == max - 1)
-        printf("Overflow\n");
-    else
-        stack[++top] = a;
-}
-
-char pop()
-{
-    if (top == -1)
-    {
-        printf("Underflow\n");
-        return '\0'; // Return sentinel value
-    }
-    else
-        return stack[top--];
-}</code></pre>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Question 4: Implementation of Linear Queue -->
-                <div class="qa-item">
-                    <div class="qa-question" onclick="toggleAnswer(this)">Implementation of Linear Queue<i>▼</i></div>
-                    <div class="qa-answer">
-                        <div class="qa-answer-content">
-                            <pre><code>#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-
-int queue[100];
-int front = -1, rear = -1, max;
-
-void insert(int num);
-void dequeue();
-void display();
-
-int main()
-{
-    int n, ch;
-    printf("Enter the limit: ");
-    scanf("%d", &max);
-    
-    while (1)
-    {
-        printf("\n1. Insert\n2. Delete\n3. Display\n4. Exit\nEnter your choice: ");
-        scanf("%d", &ch);
-        switch (ch)
-        {
-            case 1:
-                printf("Enter the element: ");
-                scanf("%d", &n);
-                insert(n);
-                break;
-            case 2: dequeue(); break;
-            case 3: display(); break;
-            case 4: exit(0);
-            default: printf("Wrong choice\n");
-        }
-    }
-}
-
-void insert(int num)
-{
-    if (rear == max - 1)
-        printf("Overflow\n");
-    else
-    {
-        if (front == -1) front = 0;
-        queue[++rear] = num;
-    }
-}
-
-void dequeue()
-{
-    if (front == -1 || front > rear)
-        printf("Underflow\n");
-    else
-        printf("Deleted element: %d\n", queue[front++]);
-}
-
-void display()
-{
-    if (front == -1 || front > rear)
-        printf("Queue is empty\n");
-    else
-    {
-        printf("Queue elements: ");
-        for (int i = front; i <= rear; i++)
-            printf("%d ", queue[i]);
-        printf("\n");
+    int factorial(int num) {
+        if (num == 1)
+            return 1;
+        return num * factorial(num - 1);
     }
 }</code></pre>
                         </div>
                     </div>
                 </div>
 
-                <!-- Question 5: Implementation of Singly Linked List -->
+                <!-- Experiment 5: Android Application for Simple Calculator -->
                 <div class="qa-item">
-                    <div class="qa-question" onclick="toggleAnswer(this)">Implementation of Singly Linked List<i>▼</i></div>
+                    <div class="qa-question" onclick="toggleAnswer(this)">To create an Android application that performs basic arithmetic operations<i>▼</i></div>
                     <div class="qa-answer">
                         <div class="qa-answer-content">
-                            <pre><code>#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
+                            <h3>activity_main.xml</h3>
+                            <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutMode="clipBounds"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:persistentDrawingCache="scrolling|none"&gt;
+    &lt;EditText
+        android:id="@+id/num1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#6C07DF"
+        android:backgroundTintMode="screen"
+        android:hint="Enter first number"
+        android:inputType="numberDecimal" /&gt;
+    &lt;EditText
+        android:id="@+id/num2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#DD37DA"
+        android:hint="Enter second number"
+        android:inputType="numberDecimal" /&gt;
+    &lt;Button
+        android:id="@+id/addButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1677C5"
+        android:backgroundTint="#E14040"
+        android:text="Add"
+        android:textColorHighlight="@color/white" /&gt;
+    &lt;Button
+        android:id="@+id/subButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Subtract" /&gt;
+    &lt;Button
+        android:id="@+id/mulButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Multiply"
+        android:textColorHighlight="@color/white"
+        android:textColorHint="@color/white"
+        android:textColorLink="@color/white" /&gt;
+    &lt;Button
+        android:id="@+id/divButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Divide" /&gt;
+    &lt;TextView
+        android:id="@+id/resultText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:text="Result will appear here"
+        android:textSize="18sp" /&gt;
+&lt;/LinearLayout&gt;</code></pre>
+                            <h3>MainActivity.java</h3>
+                            <pre><code>package com.example.cal;
 
-struct node
-{
-    int data;
-    struct node *link;
-} *start = NULL;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
-void display();
-void search_node(int n);
-void count();
-void insert_head(int n);
-void insert_tail(int n);
-void insert_after(int p, int n);
-void delete_head();
-void delete_tail();
-void delete_after(int l);
+public class MainActivity extends AppCompatActivity {
+    private EditText num1, num2;
+    private Button addButton, subButton, mulButton, divButton;
+    private TextView resultText;
 
-int main()
-{
-    int ch, n, p, l;
-    while (1)
-    {
-        printf("\n1. Insert at head\n2. Insert at tail\n3. Insert after position\n4. Display\n5. Search\n6. Count\n7. Delete head\n8. Delete tail\n9. Delete after\n10. Exit\nEnter choice: ");
-        scanf("%d", &ch);
-        switch (ch)
-        {
-            case 1:
-                printf("Enter element: ");
-                scanf("%d", &n);
-                insert_head(n);
-                break;
-            case 2:
-                printf("Enter element: ");
-                scanf("%d", &n);
-                insert_tail(n);
-                break;
-            case 3:
-                printf("Enter position and element: ");
-                scanf("%d%d", &p, &n);
-                insert_after(p, n);
-                break;
-            case 4: display(); break;
-            case 5:
-                printf("Enter element to search: ");
-                scanf("%d", &n);
-                search_node(n);
-                break;
-            case 6: count(); break;
-            case 7: delete_head(); break;
-            case 8: delete_tail(); break;
-            case 9:
-                printf("Enter position after which to delete: ");
-                scanf("%d", &l);
-                delete_after(l);
-                break;
-            case 10: exit(0);
-            default: printf("Wrong choice\n");
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        num1 = findViewById(R.id.num1);
+        num2 = findViewById(R.id.num2);
+        addButton = findViewById(R.id.addButton);
+        subButton = findViewById(R.id.subButton);
+        mulButton = findViewById(R.id.mulButton);
+        divButton = findViewById(R.id.divButton);
+        resultText = findViewById(R.id.resultText);
+        addButton.setOnClickListener(view -> performOperation("add"));
+        subButton.setOnClickListener(view -> performOperation("sub"));
+        mulButton.setOnClickListener(view -> performOperation("mul"));
+        divButton.setOnClickListener(view -> performOperation("div"));
+    }
+
+    private void performOperation(String operation) {
+        String num1str = num1.getText().toString();
+        String num2str = num2.getText().toString();
+        if (!num1str.isEmpty() && !num2str.isEmpty()) {
+            double number1 = Double.parseDouble(num1str);
+            double number2 = Double.parseDouble(num2str);
+            double result = 0;
+            switch (operation) {
+                case "add":
+                    result = number1 + number2;
+                    resultText.setText("Sum: " + result);
+                    break;
+                case "sub":
+                    result = number1 - number2;
+                    resultText.setText("Difference: " + result);
+                    break;
+                case "mul":
+                    result = number1 * number2;
+                    resultText.setText("Product: " + result);
+                    break;
+                case "div":
+                    if (number2 != 0) {
+                        result = number1 / number2;
+                        resultText.setText("Quotient: " + result);
+                    } else {
+                        resultText.setText("Cannot divide by zero!");
+                    }
+                    break;
+            }
+        } else {
+            resultText.setText("Please enter both numbers");
         }
-    }
-}
-
-void insert_head(int n)
-{
-    struct node *temp = (struct node*)malloc(sizeof(struct node));
-    temp->data = n;
-    temp->link = start;
-    start = temp;
-}
-
-void insert_tail(int n)
-{
-    struct node *temp = (struct node*)malloc(sizeof(struct node));
-    temp->data = n;
-    temp->link = NULL;
-    if (start == NULL)
-        start = temp;
-    else
-    {
-        struct node *ptr = start;
-        while (ptr->link != NULL)
-            ptr = ptr->link;
-        ptr->link = temp;
-    }
-}
-
-void insert_after(int p, int n)
-{
-    struct node *ptr = start;
-    for (int i = 1; i < p && ptr != NULL; i++)
-        ptr = ptr->link;
-    if (ptr == NULL)
-        printf("Position not found\n");
-    else
-    {
-        struct node *temp = (struct node*)malloc(sizeof(struct node));
-        temp->data = n;
-        temp->link = ptr->link;
-        ptr->link = temp;
-    }
-}
-
-void display()
-{
-    struct node *ptr = start;
-    if (ptr == NULL)
-        printf("List is empty\n");
-    else
-    {
-        printf("Linked List: ");
-        while (ptr != NULL)
-        {
-            printf("%d ", ptr->data);
-            ptr = ptr->link;
-        }
-        printf("\n");
-    }
-}
-
-void search_node(int n)
-{
-    struct node *ptr = start;
-    int pos = 1;
-    while (ptr != NULL)
-    {
-        if (ptr->data == n)
-        {
-            printf("Element %d found at position %d\n", n, pos);
-            return;
-        }
-        ptr = ptr->link;
-        pos++;
-    }
-    printf("Element not found\n");
-}
-
-void count()
-{
-    struct node *ptr = start;
-    int cnt = 0;
-    while (ptr != NULL)
-    {
-        cnt++;
-        ptr = ptr->link;
-    }
-    printf("Total nodes: %d\n", cnt);
-}
-
-void delete_head()
-{
-    if (start == NULL)
-        printf("List is empty\n");
-    else
-    {
-        struct node *temp = start;
-        start = start->link;
-        free(temp);
-    }
-}
-
-void delete_tail()
-{
-    if (start == NULL)
-        printf("List is empty\n");
-    else if (start->link == NULL)
-    {
-        free(start);
-        start = NULL;
-    }
-    else
-    {
-        struct node *ptr = start;
-        while (ptr->link->link != NULL)
-            ptr = ptr->link;
-        free(ptr->link);
-        ptr->link = NULL;
-    }
-}
-
-void delete_after(int l)
-{
-    struct node *ptr = start;
-    for (int i = 1; i < l && ptr != NULL; i++)
-        ptr = ptr->link;
-    if (ptr == NULL || ptr->link == NULL)
-        printf("Cannot delete\n");
-    else
-    {
-        struct node *temp = ptr->link;
-        ptr->link = temp->link;
-        free(temp);
     }
 }</code></pre>
                         </div>
                     </div>
                 </div>
 
-                <!-- Question 6: Implementation of Linked Stack -->
+                <!-- Experiment 6: Android Application for Basic Explicit Intent -->
                 <div class="qa-item">
-                    <div class="qa-question" onclick="toggleAnswer(this)">Implementation of Linked Stack<i>▼</i></div>
+                    <div class="qa-question" onclick="toggleAnswer(this)">To create an Android application to understand basic Explicit Intent<i>▼</i></div>
                     <div class="qa-answer">
                         <div class="qa-answer-content">
-                            <pre><code>#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
+                            <h3>activity_main.xml</h3>
+                            <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"&gt;
+    &lt;TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32" /&gt;
+    &lt;Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next Activity"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.314" /&gt;
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</code></pre>
+                            <h3>activity_second.xml</h3>
+                            <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SecondActivity"&gt;
+    &lt;TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Second Activity"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" /&gt;
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</code></pre>
+                            <h3>MainActivity.java</h3>
+                            <pre><code>package com.example.explicit_intent_one;
 
-struct node
-{
-    int data;
-    struct node *link;
-} *top = NULL;
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
-void push(int n);
-void pop();
-void display();
+public class MainActivity extends AppCompatActivity {
+    private Button btn;
 
-int main()
-{
-    int ch, n;
-    while (1)
-    {
-        printf("\n1. Push\n2. Pop\n3. Display\n4. Exit\nEnter your choice: ");
-        scanf("%d", &ch);
-        switch (ch)
-        {
-            case 1:
-                printf("Enter the element: ");
-                scanf("%d", &n);
-                push(n);
-                break;
-            case 2: pop(); break;
-            case 3: display(); break;
-            case 4: exit(0);
-            default: printf("Wrong choice\n");
-        }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        btn = findViewById(R.id.button);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, SecondActivity.class);
+                startActivity(i);
+            }
+        });
     }
-}
+}</code></pre>
+                            <h3>SecondActivity.java</h3>
+                            <pre><code>package com.example.explicit_intent_one;
 
-void push(int n)
-{
-    struct node *temp = (struct node*)malloc(sizeof(struct node));
-    temp->data = n;
-    temp->link = top;
-    top = temp;
-}
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
 
-void pop()
-{
-    if (top == NULL)
-        printf("Underflow\n");
-    else
-    {
-        printf("Popped element: %d\n", top->data);
-        struct node *temp = top;
-        top = top->link;
-        free(temp);
-    }
-}
-
-void display()
-{
-    struct node *ptr = top;
-    if (ptr == NULL)
-        printf("Stack is empty\n");
-    else
-    {
-        printf("Stack elements: ");
-        while (ptr != NULL)
-        {
-            printf("%d ", ptr->data);
-            ptr = ptr->link;
-        }
-        printf("\n");
+public class SecondActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_second);
     }
 }</code></pre>
                         </div>
                     </div>
                 </div>
 
-                <!-- Question 7: Implementation of Linked Queue -->
+                <!-- Experiment 7: Android Application for Explicit Intent with Back Navigation -->
                 <div class="qa-item">
-                    <div class="qa-question" onclick="toggleAnswer(this)">Implementation of Linked Queue<i>▼</i></div>
+                    <div class="qa-question" onclick="toggleAnswer(this)">To create an Android application to understand Explicit Intent with Back Navigation<i>▼</i></div>
                     <div class="qa-answer">
                         <div class="qa-answer-content">
-                            <pre><code>#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
+                            <h3>activity_main.xml</h3>
+                            <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"&gt;
+    &lt;TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="First Activity"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" /&gt;
+    &lt;Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        app:layout_constraintVertical_bias="0.5" /&gt;
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</code></pre>
+                            <h3>activity_second.xml</h3>
+                            <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SecondActivity"&gt;
+    &lt;TextView
+        android:id="@+id/t1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Second Activity"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" /&gt;
+    &lt;Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/t1"
+        app:layout_constraintVertical_bias="0.423" /&gt;
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</code></pre>
+                            <h3>MainActivity.java</h3>
+                            <pre><code>package com.example.explicit_intent_two;
 
-struct node
-{
-    int data;
-    struct node *link;
-} *front = NULL, *rear = NULL;
+import androidx.appcompat.app.AppCompatActivity;
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
-void insert_queue(int n);
-void delete_queue();
-void display();
+public class MainActivity extends AppCompatActivity {
+    private Button button;
 
-int main()
-{
-    int ch, n;
-    while (1)
-    {
-        printf("\n1. Insert\n2. Delete\n3. Display\n4. Exit\nEnter your choice: ");
-        scanf("%d", &ch);
-        switch (ch)
-        {
-            case 1:
-                printf("Enter the element: ");
-                scanf("%d", &n);
-                insert_queue(n);
-                break;
-            case 2: delete_queue(); break;
-            case 3: display(); break;
-            case 4: exit(0);
-            default: printf("Wrong choice\n");
-        }
+    @SuppressLint("MissingInflatedId")
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, SecondActivity.class);
+                startActivity(i);
+            }
+        });
     }
-}
+}</code></pre>
+                            <h3>SecondActivity.java</h3>
+                            <pre><code>package com.example.explicit_intent_two;
 
-void insert_queue(int n)
-{
-    struct node *temp = (struct node*)malloc(sizeof(struct node));
-    temp->data = n;
-    temp->link = NULL;
-    if (rear == NULL)
-        front = rear = temp;
-    else
-    {
-        rear->link = temp;
-        rear = temp;
-    }
-}
+import androidx.appcompat.app.AppCompatActivity;
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
-void delete_queue()
-{
-    if (front == NULL)
-        printf("Underflow\n");
-    else
-    {
-        printf("Deleted element: %d\n", front->data);
-        struct node *temp = front;
-        front = front->link;
-        if (front == NULL) rear = NULL;
-        free(temp);
-    }
-}
+public class SecondActivity extends AppCompatActivity {
+    private Button bt2;
 
-void display()
-{
-    struct node *ptr = front;
-    if (ptr == NULL)
-        printf("Queue is empty\n");
-    else
-    {
-        printf("Queue elements: ");
-        while (ptr != NULL)
-        {
-            printf("%d ", ptr->data);
-            ptr = ptr->link;
-        }
-        printf("\n");
+    @SuppressLint("MissingInflatedId")
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_second);
+        bt2 = findViewById(R.id.button2);
+        bt2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(SecondActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
     }
 }</code></pre>
                         </div>
                     </div>
                 </div>
 
-                <!-- Question 8: Implementation of Binary Search Tree -->
+                <!-- Experiment 8: Passing Data Using an Intent Object -->
                 <div class="qa-item">
-                    <div class="qa-question" onclick="toggleAnswer(this)">Implementation of Binary Search Tree<i>▼</i></div>
+                    <div class="qa-question" onclick="toggleAnswer(this)">To create an Android application to understand passing data through intent<i>▼</i></div>
                     <div class="qa-answer">
                         <div class="qa-answer-content">
-                            <pre><code>#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
+                            <h3>activity_main.xml</h3>
+                            <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"&gt;
+    &lt;EditText
+        android:id="@+id/pt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter text"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" /&gt;
+    &lt;Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="go next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pt"
+        app:layout_constraintVertical_bias="0.5" /&gt;
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</code></pre>
+                            <h3>activity_second.xml</h3>
+                            <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity2"&gt;
+    &lt;TextView
+        android:id="@+id/plain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" /&gt;
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</code></pre>
+                            <h3>MainActivity.java</h3>
+                            <pre><code>package com.example.explicit3;
 
-struct node
-{
-    int data;
-    struct node *lchild, *rchild;
-} *root = NULL;
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
-void insert(int x);
-void find(int x, struct node **par, struct node **loc);
-void preorder(struct node *ptr);
-void inorder(struct node *ptr);
-void postorder(struct node *ptr);
-void delete_node(int x);
-void onechild(struct node *par, struct node *loc);
-void leafnode(struct node *par, struct node *loc);
+public class MainActivity extends AppCompatActivity {
+    private Button b;
+    private EditText ed;
 
-int main()
-{
-    int x, ch;
-    while (1)
-    {
-        printf("\n1. Insert\n2. Delete\n3. Preorder\n4. Inorder\n5. Postorder\n6. Exit\nEnter your choice: ");
-        scanf("%d", &ch);
-        switch (ch)
-        {
-            case 1:
-                printf("Enter element to insert: ");
-                scanf("%d", &x);
-                insert(x);
-                break;
-            case 2:
-                printf("Enter element to delete: ");
-                scanf("%d", &x);
-                delete_node(x);
-                break;
-            case 3: preorder(root); printf("\n"); break;
-            case 4: inorder(root); printf("\n"); break;
-            case 5: postorder(root); printf("\n"); break;
-            case 6: exit(0);
-            default: printf("Wrong choice\n");
-        }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        b = findViewById(R.id.button);
+        ed = findViewById(R.id.pt);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String data = ed.getText().toString();
+                Intent i = new Intent(MainActivity.this, MainActivity2.class);
+                i.putExtra("key", data);
+                startActivity(i);
+            }
+        });
     }
-}
+}</code></pre>
+                            <h3>MainActivity2.java</h3>
+                            <pre><code>package com.example.explicit3;
 
-void insert(int x)
-{
-    struct node *temp, *parent, *current;
-    temp = (struct node*)malloc(sizeof(struct node));
-    temp->data = x;
-    temp->lchild = temp->rchild = NULL;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.TextView;
 
-    if (root == NULL)
-    {
-        root = temp;
-        return;
+public class MainActivity2 extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_second);
+        TextView textView = findViewById(R.id.plain);
+        String data = getIntent().getStringExtra("key");
+        textView.setText(data);
     }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
 
-    parent = NULL;
-    current = root;
-    while (current != NULL)
-    {
-        parent = current;
-        if (x < current->data)
-            current = current->lchild;
-        else
-            current = current->rchild;
+                <!-- Experiment 9: Implement Program for Calling Built-in Application using Intent -->
+                <div class="qa-item">
+                    <div class="qa-question" onclick="toggleAnswer(this)">To create an Android application to invoke Browser<i>▼</i></div>
+                    <div class="qa-answer">
+                        <div class="qa-answer-content">
+                            <h3>activity_main.xml</h3>
+                            <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"&gt;
+    &lt;Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Browser"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" /&gt;
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</code></pre>
+                            <h3>MainActivity.java</h3>
+                            <pre><code>package com.example.implicit;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+public class MainActivity extends AppCompatActivity {
+    Button button;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com"));
+                startActivity(i);
+            }
+        });
     }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
 
-    if (x < parent->data)
-        parent->lchild = temp;
-    else
-        parent->rchild = temp;
-}
+                <!-- Experiment 10: Implement Toast Message in Android Application -->
+                <div class="qa-item">
+                    <div class="qa-question" onclick="toggleAnswer(this)">To create an Android application that demonstrates the use of Toast notifications<i>▼</i></div>
+                    <div class="qa-answer">
+                        <div class="qa-answer-content">
+                            <h3>activity_main.xml</h3>
+                            <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"&gt;
+    &lt;Button
+        android:id="@+id/b1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" /&gt;
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</code></pre>
+                            <h3>MainActivity.java</h3>
+                            <pre><code>package com.example.toast;
 
-void preorder(struct node *ptr)
-{
-    if (ptr != NULL)
-    {
-        printf("%d ", ptr->data);
-        preorder(ptr->lchild);
-        preorder(ptr->rchild);
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+    private Button b1;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        b1 = findViewById(R.id.b1);
+        Toast.makeText(getApplicationContext(), "Good Morning", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Good Afternoon", Toast.LENGTH_LONG).show();
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Button Pressed", Toast.LENGTH_LONG).show();
+            }
+        });
     }
-}
-
-void inorder(struct node *ptr)
-{
-    if (ptr != NULL)
-    {
-        inorder(ptr->lchild);
-        printf("%d ", ptr->data);
-        inorder(ptr->rchild);
-    }
-}
-
-void postorder(struct node *ptr)
-{
-    if (ptr != NULL)
-    {
-        postorder(ptr->lchild);
-        postorder(ptr->rchild);
-        printf("%d ", ptr->data);
-    }
-}
-
-void find(int x, struct node **par, struct node **loc)
-{
-    struct node *ptr, *ptrsave;
-    if (root == NULL)
-    {
-        *loc = NULL;
-        *par = NULL;
-        return;
-    }
-
-    if (root->data == x)
-    {
-        *loc = root;
-        *par = NULL;
-        return;
-    }
-
-    if (x < root->data)
-        ptr = root->lchild;
-    else
-        ptr = root->rchild;
-
-    ptrsave = root;
-
-    while (ptr != NULL)
-    {
-        if (ptr->data == x)
-        {
-            *loc = ptr;
-            *par = ptrsave;
-            return;
-        }
-
-        ptrsave = ptr;
-
-        if (x < ptr->data)
-            ptr = ptr->lchild;
-        else
-            ptr = ptr->rchild;
-    }
-
-    *loc = NULL;
-    *par = ptrsave;
-}
-
-void delete_node(int x)
-{
-    struct node *par, *loc;
-
-    find(x, &par, &loc);
-
-    if (loc == NULL)
-    {
-        printf("Element not found\n");
-        return;
-    }
-
-    if (loc->lchild != NULL && loc->rchild != NULL)
-        printf("Cannot delete node with two children directly\n");
-    else if (loc->lchild == NULL && loc->rchild == NULL)
-        leafnode(par, loc);
-    else
-        onechild(par, loc);
-}
-
-void onechild(struct node *par, struct node *loc)
-{
-    struct node *child;
-    if (loc->lchild != NULL)
-        child = loc->lchild;
-    else
-        child = loc->rchild;
-
-    if (par == NULL)
-        root = child;
-    else
-    {
-        if (loc == par->lchild)
-            par->lchild = child;
-        else
-            par->rchild = child;
-    }
-    free(loc);
-}
-
-void leafnode(struct node *par, struct node *loc)
-{
-    if (par == NULL)
-        root = NULL;
-    else
-    {
-        if (loc == par->lchild)
-            par->lchild = NULL;
-        else
-            par->rchild = NULL;
-    }
-    free(loc);
 }</code></pre>
                         </div>
                     </div>
